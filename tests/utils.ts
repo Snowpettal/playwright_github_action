@@ -10,7 +10,7 @@ export async function ErrorCatch(fn: () => Promise<void>, errorMessage: string):
 }
 
 export async function login(page: Page): Promise<void> {
-  await page.goto('http://localhost:5173/');
+  await page.goto('https://staging01cms.toncashnetwork.com/');
   await page.getByRole('textbox', { name: 'Email address' }).type('ngogiakhanh123@gmail.com', { delay: 10 });
   await page.getByRole('textbox', { name: 'Password' }).type('asd123', { delay: 10 });
 
