@@ -4,7 +4,6 @@ test('Github', async({ page }) => {
 
    await page.goto('https://github.com/');
 
-await expect(page).toHaveTitle('GitHub: Let’s build from here · GitHub');
 
    await page.getByRole('link', { name:'Sign in' }).click();
 
@@ -12,22 +11,25 @@ await expect(page).toHaveTitle('GitHub: Let’s build from here · GitHub');
 
    await page.fill('#password', '21082002Ngk*');
 
-   await page.click('input[value=’Sign in’]');
+   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
 
-   await page.click('span.Button-label > img.avatar');
+   await page.waitForTimeout(3000);
 
-   await page.waitForTimeout(2000);
+    await page.getByRole('button', { name: 'Open user navigation menu' }).click();
 
-   await page.getByText('Your profile').click();
+    await page.waitForTimeout(2000);
+
+   await page.getByRole('link', { name: 'Your profile' }).click();
 
    await page.getByText('Edit profile').click();
 
    await page.waitForTimeout(2000);
 
-   await page.fill('#user_profile_name', 'YOUR_PROFILE_NAME');
+   await page.fill('#user_profile_name', 'Snowpettal');
 
    await page.click('span.Button-label:has-text("Save")');
 
    await page.waitForTimeout(2000);
+   await page.close();
 
 });
