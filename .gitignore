@@ -1,8 +1,6 @@
 
 # Playwright
 node_modules/
-env/
-.env
 /test-results/
 /playwright-report/
 /blob-report/
